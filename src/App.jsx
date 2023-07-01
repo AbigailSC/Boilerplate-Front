@@ -1,39 +1,33 @@
-import { Route, Routes, Navigate } from 'react-router-dom';
-import {
-  Analysis,
-  Home,
-  Latest,
-  Login,
-  NotFound,
-  Register,
-  Releases,
-  Reviews,
-  Tag,
-  Trending
-} from './pages';
-import { Navbar, Footer } from './components';
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import './App.css';
 
 function App() {
+  const [count, setCount] = useState(0);
+
   return (
-    <main className="min-h-screen text-gray-200 bg-gradient-to-b from-zinc-900 to-neutral-800">
-      <Navbar />
-      <div className="pt-[80px]">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/analysis" element={<Analysis />} />
-          <Route path="/latest" element={<Latest />} />
-          <Route path="/releases" element={<Releases />} />
-          <Route path="/reviews" element={<Reviews />} />
-          <Route path="/tag/:tag" element={<Tag />} />
-          <Route path="trending" element={<Trending />} />
-          <Route path="/404" element={<NotFound />} />
-          <Route path="*" element={<Navigate to="/404" replace />} />
-        </Routes>
+    <div className="App">
+      <div>
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+          <img src="/vite.svg" className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
       </div>
-      <Footer />
-    </main>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.jsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+    </div>
   );
 }
 
